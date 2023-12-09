@@ -1,5 +1,4 @@
 import tkinter as tk
-from functools import partial
 import back_button as back
 import read_lists as read
 
@@ -23,12 +22,11 @@ user_title = tk.Label(user_page, text="To-do List", font=("times new roman", 50,
 new_list_button = tk.Button(user_page, text="+", relief="sunken" ,font=("times new roman", 50, "bold"))
 
 #create back button
-go_back_arg = partial(back.go_back, "user_page")
-user_back_button = tk.Button(user_page, text="Back", relief="sunken" ,font=("times new roman", 30), command= go_back_arg)
+user_back_button = tk.Button(user_page, text="Back", relief="sunken" ,font=("times new roman", 30), command= back.go_back)
 
 #the lists buttons and their corresponding tasks need to be adjusted for all the different possible files
 
-lists = read.read_user_lists("Kristina")
+lists = read.read_user_lists("user")
     
 for i in range(len(lists)):
     list_num_list.append(f"{lists[i]}")
