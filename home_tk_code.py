@@ -2,9 +2,6 @@ import tkinter as tk
 import many_page as many
 import home_functions as home
 
-#import back_button as back
-#import read_lists as read
-
 #creates the window
 home_page = tk.Tk()
 
@@ -24,6 +21,7 @@ new_list_button = tk.Button(home_page, text="+", relief="raised" ,font=("times n
 #the lists buttons and their corresponding tasks need to be adjusted for all the different possible files
 
 lists = many.read_user_lists("user_lists.txt")
+print(lists)
     
 for i in range(len(lists)):
     list_num_list.append(f"{lists[i]}")
@@ -35,4 +33,4 @@ for i in range(len(lists)):
         
 
 #opens the page
-# user_page.mainloop()
+home_page.mainloop()

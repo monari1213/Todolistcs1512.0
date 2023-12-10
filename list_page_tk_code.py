@@ -15,13 +15,13 @@ user_list = tk.Label(list_page,
                      font=("times new roman", 69, "bold")).pack()
 #user_list.pack(side="left",anchor="nw",padx=(100,0), pady=(75,0))
 
-edit_button = tk.Button(user_list, 
+edit_button = tk.Button(list_page, 
                         text="E", 
                         relief="sunken" ,
                         font=("times new roman", 30))
 edit_button.pack(side="right", anchor = "ne", padx = 50, pady=100)
 
-add_button = tk.Button(user_list, 
+add_button = tk.Button(list_page, 
                        text="A", 
                        relief="sunken" ,
                        font=("times new roman", 30))
