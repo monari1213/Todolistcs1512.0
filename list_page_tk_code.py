@@ -4,7 +4,7 @@ import home_tk_code as home
 def open_list(list_name, read_lines):
     list_page = tk.Tk()
     list_page.geometry("1440x1024")
-    list_page.title("list page")
+    list_page.title(f"list page_{list_name}")
     
     #text_box.get("1.0", tk.END)
 
@@ -24,8 +24,10 @@ def open_list(list_name, read_lines):
     user_list.pack()
     #user_list.pack(side="left",anchor="nw",padx=(100,0), pady=(75,0))
 
-    text_box = tk.Text(list_page, text = read_lines)
+    text_box = tk.Text(list_page)
     text_box.pack()
+    for i in range(len(read_lines)):
+        text_box.insert(tk.END, read_lines[i] + "\n")
 
     list_page.mainloop()
     

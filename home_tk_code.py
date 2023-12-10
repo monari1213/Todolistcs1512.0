@@ -7,13 +7,6 @@ def read_user_lists(file_name):
     return lines
 
 lists = read_user_lists("user_lists")
-    
-def create_new_list():
-    new_file = open("new_list.txt", "a+")
-    
-    with open("user_lists.txt", "a") as lists:
-        lists.write("new_list\n")
-    
 
 def open_home():
     #creates the window
@@ -23,7 +16,15 @@ def open_home():
         lines = read_user_lists(list_name)
         print(lines)
         home_page.quit
-        list.open_list(list_name, lines)
+        list.open_list(list_name, lines)     
+        
+    def create_new_list():
+        new_file = open("new_list.txt", "a+")
+        
+        with open("user_lists.txt", "a") as lists:
+            lists.write("new_list\n")
+        
+        new_list_button = tk.Button(home_page, text= "new_list", relief="raised", font=("times new roman", 20), command= lambda: open_list("new_list"))
 
     list_num_list = []
     task_num_list = []
