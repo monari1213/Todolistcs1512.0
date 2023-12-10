@@ -7,28 +7,23 @@ def read_user_lists(file_name):
     return lines
 
 lists = read_user_lists("user_lists")
-print(lists[0][:-1])
-
-def open_list(list_name):
-    fr_list = list_name[:len(list_name)-2]
-    try:
-        lines = read_user_lists(f"{fr_list}.txt")
-        print(lines, list_name)
-        list.open_list(list_name, lines)
-    except: 
-        print("u suck")
-        print(fr_list)
-        
-
+    
 def create_new_list():
     new_file = open("new_list.txt", "a+")
     
     with open("user_lists.txt", "a") as lists:
-        lists.write("\nnew_list")
+        lists.write("new_list\n")
+    
 
 def open_home():
     #creates the window
     home_page = tk.Tk()
+    
+    def open_list(list_name):
+        lines = read_user_lists(list_name)
+        print(lines)
+        home_page.quit
+        list.open_list(list_name, lines)
 
     list_num_list = []
     task_num_list = []
@@ -45,8 +40,7 @@ def open_home():
         
     for i in range(len(lists)):
         list_num_list.append(f"{lists[i]}")
-        file = f"{list_num_list[-1][:-1]}.txt"
-        list_num_list[-1] = tk.Button(home_page, text= list_num_list[-1 ], relief="raised", font=("times new roman", 20), command= lambda: open_list(file))
+        list_num_list[-1] = tk.Button(home_page, text= list_num_list[-1 ], relief="raised", font=("times new roman", 20), command= lambda x=i: open_list(lists[x][0:-1]))
         list_num_list[-1].pack()
 
     #opens the page
