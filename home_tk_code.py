@@ -14,7 +14,6 @@ def open_home():
     
     def open_list(list_name):
         lines = read_user_lists(list_name)
-        print(lines)
         home_page.quit
         list.open_list(list_name, lines)     
         

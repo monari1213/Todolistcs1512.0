@@ -18,10 +18,10 @@ def open_list(list_name, read_lines):
     list_back_button.pack()
     #list_back_button.pack(side="top", anchor="w" )
 
-    user_list = tk.Label(list_page, 
-                            text= list_name, 
+    user_list = tk.Entry(list_page, 
                             font=("times new roman", 69, "bold"))
     user_list.pack()
+    user_list.insert(tk.END ,list_name)
     #user_list.pack(side="left",anchor="nw",padx=(100,0), pady=(75,0))
 
     text_box = tk.Text(list_page)
