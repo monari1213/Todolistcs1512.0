@@ -25,6 +25,7 @@ def open_home():
             lists.write("new_list\n")
         
         new_list_button = tk.Button(home_page, text= "new_list", relief="raised", font=("times new roman", 20), command= lambda: open_list("new_list"))
+        new_list_button.pack()
 
     list_num_list = []
     task_num_list = []
