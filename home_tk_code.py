@@ -10,11 +10,12 @@ lists = read_user_lists("user_lists")
 
 def open_home():
     #creates the window
+    global home_page
     home_page = tk.Tk()
     
     def open_list(list_name):
         lines = read_user_lists(list_name)
-        home_page.quit
+        home_page.destroy()
         list.open_list(list_name, lines)     
         
     def create_new_list():

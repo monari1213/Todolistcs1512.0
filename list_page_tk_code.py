@@ -2,6 +2,7 @@ import tkinter as tk
 import home_tk_code as home
 
 def open_list(list_name, read_lines):
+    global list_page 
     list_page = tk.Tk()
     list_page.geometry("1440x1024")
     list_page.title(f"list page_{list_name}")
@@ -9,7 +10,7 @@ def open_list(list_name, read_lines):
     #text_box.get("1.0", tk.END)
 
     def back():
-        list_page.quit
+        list_page.destroy()
         home.open_home()
         
     list_back_button = tk.Button(list_page, text="Back", 
