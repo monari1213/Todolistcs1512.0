@@ -1,13 +1,13 @@
 import tkinter as tk
-import back_button
+import list_functions as list
 
 list_page = tk.Tk()
 list_page.geometry("1440x1024")
 list_page.title("list page")
 
 list_back_button = tk.Button(list_page, text="Back", 
-                             relief="sunken" ,
-                             font=("times new roman", 60), command=back_button.go_back)
+                             relief="raised" ,
+                             font=("times new roman", 60), command=list.go_back)
 list_back_button.pack(side="top", anchor="w" )
 
 user_list = tk.Label(list_page, 
