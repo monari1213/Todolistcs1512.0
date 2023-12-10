@@ -29,4 +29,3 @@ def open_list(list_name, read_lines):
 
     list_page.mainloop()
     
-open_list()

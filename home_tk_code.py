@@ -10,7 +10,7 @@ lists = read_user_lists("user_lists")
 print(lists[0][:-1])
 
 def open_list(list_name):
-    fr_list = str(list_name[:-1])
+    fr_list = list_name[:len(list_name)-2]
     try:
         lines = read_user_lists(f"{fr_list}.txt")
         print(lines, list_name)
@@ -45,7 +45,8 @@ def open_home():
         
     for i in range(len(lists)):
         list_num_list.append(f"{lists[i]}")
-        list_num_list[-1] = tk.Button(home_page, text= list_num_list[-1 ], relief="raised", font=("times new roman", 20), command= lambda: open_list(list_num_list[-1]))
+        file = f"{list_num_list[-1][:-1]}.txt"
+        list_num_list[-1] = tk.Button(home_page, text= list_num_list[-1 ], relief="raised", font=("times new roman", 20), command= lambda: open_list(file))
         list_num_list[-1].pack()
 
     #opens the page
