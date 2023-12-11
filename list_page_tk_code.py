@@ -8,27 +8,40 @@ def open_list(list_name, read_lines):
     list_page.title(f"list page_{list_name}")
     
     #text_box.get("1.0", tk.END)
-
-    def back():
-        list_page.destroy()
-        home.open_home()
         
     list_back_button = tk.Button(list_page, text="Back", 
                                     relief="raised" ,
-                                    font=("times new roman", 60), command= back)
+                                    font=("times new roman", 60))#, command= back)
     list_back_button.pack()
     #list_back_button.pack(side="top", anchor="w" )
 
+    global user_list
     user_list = tk.Entry(list_page, 
                             font=("times new roman", 69, "bold"))
     user_list.pack()
     user_list.insert(tk.END ,list_name)
     #user_list.pack(side="left",anchor="nw",padx=(100,0), pady=(75,0))
 
+    global text_box
     text_box = tk.Text(list_page)
     text_box.pack()
     for i in range(len(read_lines)):
-        text_box.insert(tk.END, read_lines[i] + "\n")
+        text_box.insert(tk.END, read_lines[i])
+        
+    def save():
+        written = text_box.get("1.0", tk.END)
+        name = user_list.get()
+        with open(f"{name}.txt", "w") as file:
+            file.write(written)
+        with open("user_lists.txt", "a+") as user:
+            user.write(name)
+    
+    def back():
+        save()
+        list_page.destroy()
+        home.open_home()
+      
+    list_back_button.config(command=back)  
 
     list_page.mainloop()
     

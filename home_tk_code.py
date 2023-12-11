@@ -40,6 +40,7 @@ def open_home():
     #creates the new list button and places it
     new_list_button = tk.Button(home_page, text="+", relief="raised" ,font=("times new roman", 30, "bold"), command = create_new_list).pack()
         
+    lists = read_user_lists("user_lists")
     for i in range(len(lists)):
         list_num_list.append(f"{lists[i]}")
         list_num_list[-1] = tk.Button(home_page, text= list_num_list[-1 ], relief="raised", font=("times new roman", 20), command= lambda x=i: open_list(lists[x][0:-1]))
