@@ -21,7 +21,7 @@ def open_list(list_name, read_lines):
     user_list.pack(side="top",anchor="center")
 
     global text_box
-    text_box = tk.Text(list_page, background= "#B8B6D8")
+    text_box = tk.Text(list_page, background= "#B8B6D8", font=("times new roman", 25))
     text_box.pack()
     for i in range(len(read_lines)):
         text_box.insert(tk.END, read_lines[i])
