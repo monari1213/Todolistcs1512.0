@@ -22,7 +22,7 @@ def open_home():
         new_file = open("new_list.txt", "a+")
         
         with open("user_lists.txt", "a") as lists:
-            lists.write("new_list\n")
+            lists.write("\nnew_list\n")
         
         new_list_button = tk.Button(home_page, text= "new_list", relief="raised", font=("times new roman", 20), command= lambda: open_list("new_list"))
         new_list_button.pack()
@@ -43,7 +43,7 @@ def open_home():
     lists = read_user_lists("user_lists")
     for i in range(len(lists)):
         list_num_list.append(f"{lists[i]}")
-        list_num_list[-1] = tk.Button(home_page, text= list_num_list[-1 ], relief="raised", font=("times new roman", 20), command= lambda x=i: open_list(lists[x][0:-1]))
+        list_num_list[-1] = tk.Button(home_page, text= list_num_list[-1 ], relief="raised", font=("times new roman", 20), command= lambda x=i: open_list(lists[x].strip("\n")))
         list_num_list[-1].pack()
 
     #opens the page

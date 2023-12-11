@@ -38,16 +38,14 @@ def open_list(list_name, read_lines):
         with open("user_lists.txt", "r") as user:
             lines = user.readlines()
         if old_name != name:
+            os.remove(f"{old_name}.txt")
             with open("user_lists.txt", "w") as user:
                 for line in lines:
                     if line.strip("\n") != old_name:
                         user.write(line)
-        with open("user_lists.txt", "a") as user:
-            user.write(name)
-                
-        if old_name != name:
-            os.remove(f"{old_name}.txt")
-    
+            with open("user_lists.txt", "a") as user:
+                user.write(f"\n{name}")
+            
     def back():
         save()
         list_page.destroy()
