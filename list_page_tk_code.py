@@ -40,7 +40,7 @@ def open_list(list_name, read_lines):
                 for line in lines:
                     if line.strip("\n") != old_name:
                         user.write(line)
-                user.write(f"\n{name}\n") 
+                user.write(f"{name}\n") 
     
     def back():
         save()
