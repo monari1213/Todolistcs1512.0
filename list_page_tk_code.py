@@ -1,5 +1,6 @@
 import tkinter as tk
 import home_tk_code as home
+import os
 
 def open_list(list_name, read_lines):
     global list_page 
@@ -34,13 +35,18 @@ def open_list(list_name, read_lines):
         name = user_list.get()
         with open(f"{name}.txt", "w") as file:
             file.write(written)
-        with open("user_lists.txt", "a+") as user:
-            if old_name != name:
-                lines = user.readline()
+        with open("user_lists.txt", "r") as user:
+            lines = user.readlines()
+        if old_name != name:
+            with open("user_lists.txt", "w") as user:
                 for line in lines:
                     if line.strip("\n") != old_name:
                         user.write(line)
-                user.write(f"{name}\n") 
+        with open("user_lists.txt", "a") as user:
+            user.write(name)
+                
+        if old_name != name:
+            os.remove(f"{old_name}.txt")
     
     def back():
         save()
