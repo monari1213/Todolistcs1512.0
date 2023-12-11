@@ -33,18 +33,19 @@ def open_home():
     #sets the size of the page and title
     home_page.geometry("1440x1024")
     home_page.title(" home_page")
-
-    #labels the window 
-    user_title = tk.Label(home_page, text="To-do List", font=("times new roman", 30, "bold")).pack()
+    home_page.config(background= "white")
 
     #creates the new list button and places it
-    new_list_button = tk.Button(home_page, text="+", relief="raised" ,font=("times new roman", 30, "bold"), command = create_new_list).pack()
+    new_list_button = tk.Button(home_page, text="+", relief="raised" , background= "#B8B6D8",font=("times new roman", 30, "bold"), command = create_new_list).pack(side="left", anchor="nw")
+    
+    #labels the window 
+    user_title = tk.Label(home_page, text="To-do List", font=("times new roman", 30, "bold"), background= "#F7B97D").pack(side="top", anchor="center", padx= 50)
         
     lists = read_user_lists("user_lists")
     for i in range(len(lists)):
         list_num_list.append(f"{lists[i]}")
-        list_num_list[-1] = tk.Button(home_page, text= list_num_list[-1 ], relief="raised", font=("times new roman", 20), command= lambda x=i: open_list(lists[x].strip("\n")))
-        list_num_list[-1].pack()
+        list_num_list[-1] = tk.Button(home_page, text= list_num_list[-1 ], relief="raised", background= "#B8B6D8",font=("times new roman", 20), command= lambda x=i: open_list(lists[x].strip("\n")))
+        list_num_list[-1].pack(anchor="center", padx=10, pady= 10)
 
     #opens the page
     home_page.mainloop()
