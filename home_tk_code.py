@@ -25,7 +25,7 @@ def open_home():
         with open("user_lists.txt", "a") as lists:
             lists.write("\nnew_list\n")
         
-        new_list_button = tk.Button(home_page, text= "new_list", relief="raised", font=("times new roman", 20), background= "#B8B6D8" , command= lambda: open_list("new_list"))
+        new_list_button = tk.Button(extra_frame, text= "new_list", relief="raised", font=("times new roman", 20), background= "#B8B6D8" , command= lambda: open_list("new_list"))
         new_list_button.pack()
 
     list_num_list = []
