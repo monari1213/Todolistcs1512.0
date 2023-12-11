@@ -20,6 +20,7 @@ def open_list(list_name, read_lines):
                             font=("times new roman", 69, "bold"))
     user_list.pack()
     user_list.insert(tk.END ,list_name)
+    old_name = user_list.get()
     #user_list.pack(side="left",anchor="nw",padx=(100,0), pady=(75,0))
 
     global text_box
@@ -34,7 +35,12 @@ def open_list(list_name, read_lines):
         with open(f"{name}.txt", "w") as file:
             file.write(written)
         with open("user_lists.txt", "a+") as user:
-            user.write(name)
+            if old_name != name:
+                lines = user.readline()
+                for line in lines:
+                    if line.strip("\n") != old_name:
+                        user.write(line)
+                user.write(f"\n{name}\n") 
     
     def back():
         save()
